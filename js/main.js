@@ -8,7 +8,26 @@ jQuery(document).ready(function($) {
 
 	"use strict";
 
-	
+
+  var testFn = function() {
+    var actions = [
+      "<span class='text-primary icon-lightbulb_outline'></span> Matt is building a startup",
+      "<span class='text-primary icon-sentiment_satisfied'></span> Tom is learning how to dance",
+      "<span class='text-primary icon-plane'></span> Max is exploring the world",
+      "<span class='text-primary icon-bullseye'></span> Rama is practicing archery",
+      "<span class='text-primary icon-directions_run'></span> Indy is running marathons",
+      "<span class='text-primary icon-music_note'></span> Alan is writing his own songs",
+      "<span class='text-primary icon-superpowers'></span> Andrew is powerlifting",
+      "<span class='text-primary icon-book'></span> Srinath is reading biographies",
+    ];
+    var i = 1;
+    var ele = document.getElementById('people-doing-stuff');
+    setInterval(function() {
+      ele.innerHTML = actions[i];
+      i = (i + 1) % actions.length;
+    }, 2000)
+  }
+  testFn();
 
 	var siteMenuClone = function() {
 
@@ -19,11 +38,11 @@ jQuery(document).ready(function($) {
 
 
 		setTimeout(function() {
-			
+
 			var counter = 0;
       $('.site-mobile-menu .has-children').each(function(){
         var $this = $(this);
-        
+
         $this.prepend('<span class="arrow-collapse collapsed">');
 
         $this.find('.arrow-collapse').attr({
@@ -49,8 +68,8 @@ jQuery(document).ready(function($) {
       } else {
         $this.addClass('active');
       }
-      e.preventDefault();  
-      
+      e.preventDefault();
+
     });
 
 		$(window).resize(function() {
@@ -75,7 +94,7 @@ jQuery(document).ready(function($) {
 				$('body').addClass('offcanvas-menu');
 				$this.addClass('active');
 			}
-		}) 
+		})
 
 		// click outisde offcanvas
 		$(document).mouseup(function(e) {
@@ -86,7 +105,7 @@ jQuery(document).ready(function($) {
 				}
 	    }
 		});
-	}; 
+	};
 	siteMenuClone();
 
 
@@ -123,7 +142,7 @@ jQuery(document).ready(function($) {
 	// siteSliderRange();
 
 
-	
+
 	var siteCarousel = function () {
 		if ( $('.nonloop-block-13').length > 0 ) {
 			$('.nonloop-block-13').owlCarousel({
@@ -193,7 +212,7 @@ jQuery(document).ready(function($) {
 		    + '<span class="countdown-block"><span class="label">%M</span> min </span>'
 		    + '<span class="countdown-block"><span class="label">%S</span> sec</span>'));
 		});
-				
+
 	};
 	siteCountDown();
 
@@ -231,7 +250,7 @@ jQuery(document).ready(function($) {
 
   var siteScroll = function() {
 
-  	
+
 
   	$(window).scroll(function() {
 
@@ -243,7 +262,7 @@ jQuery(document).ready(function($) {
   			$('.js-sticky-header').removeClass('shrink');
   		}
 
-  	}) 
+  	})
 
   };
   siteScroll();
